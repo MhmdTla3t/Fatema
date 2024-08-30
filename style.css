@@ -1,0 +1,230 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+html{
+  /*   *****   Storing Colors In Variables   *****  */
+  --body-clr:#fcfcfc;
+  --primary-clr: #f9532d;
+  --primary-light-clr: #eaf3fa;
+  --links-clr: #186f78;
+  --text-clr: #3f7277;
+}
+body{
+  width: 100%;
+  min-height: 100vh;
+}
+.portfolio{
+  width: 100%;
+  padding: 30px 8%;
+  background-color: var(--body-clr);
+}
+.portfolio .section-head{
+  max-width: 700px;
+  margin: 0px auto 25px;
+  text-align: center;
+}
+.section-head h1{
+  position: relative;
+  font-size: 32px;
+  margin: 10px 0px 30px;
+  color: var(--primary-clr);
+}
+.button-group{
+  text-align: center;
+  margin-bottom: 40px;
+}
+.button-group .button{
+  display: inline-block;
+  padding: 10px 20px;
+  margin: 5px;
+  background-color: #c8d1d8;
+  color: var(--primary-clr);
+  font-style: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.4s;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+.button-group .button.active{
+  background-color: var(--primary-clr);
+  color: var(--body-clr);
+}
+.button-group .button:hover{
+  background-color: var(--primary-clr);
+  color: var(--body-clr);
+}
+div.gallery{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+div.gallery .item{
+  position: relative;
+  margin: 4px;
+  width: calc(33.33% - 8px);
+  overflow: hidden;
+  cursor: pointer;
+}
+/* Base style for images in the gallery */
+.item img {
+  width: 100%; /* Ensure images take full width of their container */
+  height: auto; /* Maintain aspect ratio */
+  object-fit: cover; /* Cover the container area without distortion */
+  border-radius: 8px; /* Rounded corners for a softer look */
+  display: block; /* Remove space below the image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+}
+
+/* Hover effect to scale image and enhance shadow */
+.item:hover img {
+  transform: scale(1.1); /* Slight zoom on hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4); /* Enhanced shadow on hover */
+}
+
+/* Overlay style */
+.item .overlay {
+  position: absolute; /* Position overlay over the image */
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  top: 0; /* Align to top */
+  left: 0; /* Align to left */
+  display: flex; /* Center content horizontally and vertically */
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(5, 85, 92, 0.7); /* Semi-transparent background */
+  color: var(--body-clr); /* Text color */
+  padding: 15px; /* Padding around content */
+  overflow: hidden; /* Hide overflow content */
+  transition: opacity 0.3s ease-in-out; /* Smooth transition for opacity */
+  opacity: 0; /* Start with hidden overlay */
+  border-radius: 8px; /* Match the rounded corners of the image */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); /* Subtle shadow for overlay */
+}
+
+/* Show overlay on hover */
+.item:hover .overlay {
+  opacity: 1; /* Make overlay visible */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Enhanced shadow for overlay on hover */
+}
+
+/* Style for the link within the overlay */
+.item .overlay a {
+  display: inline-block; /* Align link as block-level */
+  padding: 8px 16px; /* Space around the text */
+  border: 2px solid var(--body-clr); /* Border color matching the text */
+  color: var(--body-clr); /* Text color */
+  text-decoration: none; /* Remove underline */
+  font-size: 14px; /* Font size */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth color transition */
+  border-radius: 4px; /* Rounded corners for the button */
+}
+
+/* Hover effect for the link */
+.item .overlay a:hover {
+  background-color: var(--body-clr); /* Background color on hover */
+  color: var(--primary-clr); /* Text color on hover */
+}
+
+/* Responsive design for gallery items */
+@media (max-width: 1024px) {
+  .gallery .item {
+    width: calc(50% - 8px); /* Two items per row */
+    margin: 4px; /* Space between items */
+  }
+}
+
+@media (max-width: 600px) {
+  .gallery .item {
+    width: calc(100% - 8px); /* One item per row */
+    margin: 4px 0; /* Space between items */
+  }
+}
+
+.spacer {
+  height: 50px; /* Adjust this value to control the amount of space */
+}
+
+/* Optional: You can also directly add margin to the mainContainer */
+.mainContainer {
+  margin-top: 50px; /* Adds space above the main content */
+}
+/* Footer styling */
+.footer {
+  background-color: #f8f9fa; /* Light background for footer */
+  color: #333; /* Dark text color */
+  padding: 20px 0; /* Padding around footer */
+  text-align: center; /* Center-align text */
+}
+
+.footer-container {
+  max-width: 1200px; /* Maximum width of content */
+  margin: 0 auto; /* Center-align the container */
+  padding: 0 20px; /* Padding inside container */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 20px; /* Space between sections */
+}
+
+.footer-about, .footer-contact, .footer-social {
+  flex: 1;
+  min-width: 200px; /* Minimum width for responsive layout */
+}
+
+.footer-about h2, .footer-contact h2, .footer-social h2 {
+  font-size: 1.5rem; /* Heading font size */
+  margin-bottom: 10px; /* Space below heading */
+}
+
+.footer-about p, .footer-contact p {
+  margin: 5px 0; /* Space between paragraphs */
+}
+
+.footer-social a {
+  display: inline-block;
+  margin: 0 10px; /* Space between social icons */
+  color: #333; /* Icon color */
+  font-size: 1.5rem; /* Icon size */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.3s; /* Smooth color transition */
+}
+
+.footer-social a:hover {
+  color: #f9532d; /* Color on hover */
+}
+
+.footer-bottom {
+  margin-top: 20px; /* Space above bottom text */
+  border-top: 1px solid #ddd; /* Top border */
+  padding-top: 10px; /* Padding above text */
+}
+
+.footer-bottom p {
+  margin: 0; /* Remove margin */
+}
+
+/* Dark mode styling */
+.dark-mode .footer {
+  background-color: #1f252e; /* Dark background */
+  color: #f9532d; /* Light text color */
+}
+
+.dark-mode .footer-social a {
+  color: #fff; /* Light icon color */
+}
+
+.dark-mode .footer-social a:hover {
+  color: #f9532d; /* Hover color */
+}
+
+.dark-mode .footer-bottom {
+  border-top: 1px solid #444; /* Darker border */
+}
